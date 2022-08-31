@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<h1>Aplicação de CRUD com django</h1>
+<p>
+    <a href="{% url 'produtos.lista' %}" class="btn btn-primary">Cadastro de Produtos</a>
+    <a href="{% url 'categorias.lista' %}" class="btn btn-primary">Cadastro de Categorias</a>
+</p>
+{% endblock %}

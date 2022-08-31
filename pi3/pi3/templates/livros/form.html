@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block conteudo %}
+    <h1>{{ titulo }}</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <p>
+            <label>ISBN::</label>
+            {{ frm.isbn|add_class:'form-control'}}
+        </p>
+        <p>
+            <label>Titulo:</label>
+            {{ frm.titulo|add_class:'form-control'}}
+        </p>
+        <p>
+            <label>Data de Aquisição:</label>
+            {{ frm.data_aquisicao|add_class:'form-control' }}
+        </p>
+        <p>
+            <label>Estado:</label>
+            {{ frm.estado|add_class:'form-control' }}
+        </p>
+        <p>
+            <label>Disponibilidade:</label>
+            {{ frm.situação_livro|add_class:'form-control' }}
+        </p>
+        <p>
+            <label>Editora:</label>
+            {{ frm.editora|add_class:'form-control' }}
+        </p>
+        <p>
+            <label>Autor:</label>
+            {{ frm.autor|add_class:'form-control' }}
+        </p>
+        <p>
+            <button type="submit" class="btn btn-primary">
+                <i class="fa fa-save"></i> Salvar
+            </button>
+        </p>
+    </form>
+{% endblock %}

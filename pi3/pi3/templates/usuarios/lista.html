@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<h1>Usuarios Cadastrados</h1>
+<p>
+    <a href="{% url 'home' %}" class="btn btn-primary">
+        <i class="fa fa-home"></i>
+    </a>
+</p>
+<p>
+    <a href="{% url 'usuarios.novo' %}" class="btn btn-secondary">
+        <i class="fa fa-plus"></i> Cadastrar Usuario
+    </a>
+</p>
+<table class="table table-hover">
+    <tr>
+        <th>Nome</th>
+        <th>CPF</th>
+        <th>E-mail</th>
+        <th>Telefone</th>
+        <th>CEP</th>
+        <th>Complemento</th>
+        <th>Ações</th>
+    </tr>
+    {% for u in usuarios %}
+        <tr>
+            <td>{{ u.nome }}</td>
+            <td>{{ u.cpf }}</td>
+            <td>{{ u.email }}</td>
+            <td>{{ u.telefone }}</td>
+            <td>{{ u.cep }}</td>
+            <td>{{ u.comp_cep }}</td>
+            <td>
+                <a href="{% url 'usuarios.editar' u.id %}" class="btn btn-warning">
+                    <i class="fa fa-pencil"></i>
+                </a>
+                <a href="{% url 'usuarios.excluir' u.id %}" class="btn btn-danger" onclick=" return confirm('Deseja Excluir {{ u.nome }} ? ')">
+                    <i class="fa fa-trash"></i>
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}

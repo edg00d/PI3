@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<h1>Livros Cadastrados</h1>
+<p>
+    <a href="{% url 'home' %}" class="btn btn-primary">
+        <i class="fa fa-home"></i>
+    </a>
+</p>
+<p>
+    <a href="{% url 'livros.novo' %}" class="btn btn-secondary">
+        <i class="fa fa-plus"></i> Cadastrar Livros
+    </a>
+</p>
+<table class="table table-hover">
+    <tr>
+        <th>ISBN</th>
+        <th>Titulo</th>
+        <th>Data de Aquisição</th>
+        <th>Estado de Conservação</th>
+        <th>Disponibilidade</th>
+        <th>Editora</th>
+        <th>Autor</th>
+        <th>Ações</th>
+    </tr>
+    {% for l in livros %}
+        <tr>
+            <td>{{ l.isbn }}</td>
+            <td>{{ l.titulo }}</td>
+            <td>{{ l.data_aquisicao }}</td>
+            <td>{{ l.estado }}</td>
+            <td>{{ l.situacao_livro }}</td>
+            <td>{{ l.editora.nome }}</td>
+            <td>{{ l.autor.nome }}</td>
+            <td>
+                <a href="{% url 'livros.editar' l.id %}" class="btn btn-warning">
+                    <i class="fa fa-pencil"></i>
+                </a>
+                <a href="{% url 'livros.excluir' l.id %}" class="btn btn-danger" onclick=" return confirm('Deseja Excluir {{ l.titulo }} ? ')">
+                    <i class="fa fa-trash"></i>
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}
