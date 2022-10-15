@@ -19,7 +19,7 @@ def novo(request):
         'titulo': 'Cadatrar usuario'
     })
 def editar(request, id):
-    usuario = get_object_or_404(usuario, pk=id)
+    Usuario = get_object_or_404(usuario, pk=id)
     frm = usuario_form(request.POST or None, instance=usuario)
     if frm.is_valid():
         frm.save()
@@ -29,7 +29,7 @@ def editar(request, id):
         'titulo': 'Editar usuario'
     })
 def excluir(request, id):
-    usuario = get_object_or_404(usuario, pk=id)
+    Usuario = get_object_or_404(usuario, pk=id)
     frm = usuario_form(request.POST or None, instance=usuario)
-    usuario.delete()
+    Usuario.delete()
     return redirect('usuarios.lista')

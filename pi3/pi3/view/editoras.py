@@ -19,7 +19,7 @@ def novo(request):
         'titulo': 'Cadastrar editora'
     })
 def editar(request, id):
-    editora = get_object_or_404(editora, pk=id)
+    Editora = get_object_or_404(editora, pk=id)
     frm = editora_form(request.POST or None, instance=editora)
     if frm.is_valid():
         frm.save()
@@ -29,7 +29,7 @@ def editar(request, id):
         'titulo': 'Editar editora'
     })
 def excluir(request, id):
-    editora = get_object_or_404(editora, pk=id)
+    Editora = get_object_or_404(editora, pk=id)
     frm = editora_form(request.POST or None, instance=editora)
-    editora.delete()
+    Editora.delete()
     return redirect('editoras.lista')

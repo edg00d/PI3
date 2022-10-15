@@ -21,7 +21,7 @@ class autor(models.Model):
     bio = models.CharField(max_length=400)
 
 class livro(models.Model):
-    isbn = models.CharField(nmax_length=200)
+    isbn = models.CharField(max_length=200)
     titulo = models.CharField(max_length=200)
     data_aquisicao = models.DateField()
     estado = models.CharField(max_length=200)

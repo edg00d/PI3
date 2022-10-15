@@ -19,7 +19,7 @@ def novo(request):
         'titulo': 'Cadatrar livro'
     })
 def editar(request, id):
-    livro = get_object_or_404(livro, pk=id)
+    Livro = get_object_or_404(livro, pk=id)
     frm = livro_form(request.POST or None, instance=livro)
     if frm.is_valid():
         frm.save()
@@ -29,7 +29,7 @@ def editar(request, id):
         'titulo': 'Editar livro'
     })
 def excluir(request, id):
-    livro = get_object_or_404(livro, pk=id)
+    Livro = get_object_or_404(livro, pk=id)
     frm = livro_form(request.POST or None, instance=livro)
-    livro.delete()
+    Livro.delete()
     return redirect('livros.lista')

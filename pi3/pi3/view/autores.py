@@ -19,7 +19,7 @@ def novo(request):
         'titulo': 'Cadastrar autor'
     })
 def editar(request, id):
-    autor = get_object_or_404(autor, pk=id)
+    Autor = get_object_or_404(autor, pk=id)
     frm = autor_form(request.POST or None, instance=autor)
     if frm.is_valid():
         frm.save()
@@ -29,7 +29,7 @@ def editar(request, id):
         'titulo': 'Editar autor'
     })
 def excluir(request, id):
-    autor = get_object_or_404(autor, pk=id)
+    Autor = get_object_or_404(autor, pk=id)
     frm = autor_form(request.POST or None, instance=autor)
-    autor.delete()
+    Autor.delete()
     return redirect('autores.lista')

@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 {% block conteudo %}
-<h1>Aplicação de CRUD com django</h1>
+<h1>Projeto de PI</h1>
 <p>
-    <a href="{% url 'produtos.lista' %}" class="btn btn-primary">Cadastro de Produtos</a>
-    <a href="{% url 'categorias.lista' %}" class="btn btn-primary">Cadastro de Categorias</a>
+    <a href="{% url 'autores.lista' %}" class="btn btn-primary">Cadastro de Autores</a>
+    <a href="{% url 'editoras.lista' %}" class="btn btn-primary">Cadastro de Editoras</a>
+    <a href="{% url 'livros.lista' %}" class="btn btn-primary">Cadastro de livros</a>
+    <a href="{% url 'usuarios.lista' %}" class="btn btn-primary">Cadastro de Usuários</a>
 </p>
 {% endblock %}

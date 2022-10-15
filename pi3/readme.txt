@@ -1,4 +1,7 @@
-python -m django startproject #nome_do_projeto
+#python .\manage.py makemigrations crud_biblioteca
+#python .\manage.py migrate
+#python .\manage.py runserver
+#python -m django startproject #nome_do_projeto
 #cria um projeto django
 
 Arquivo settings.py
