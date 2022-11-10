@@ -17,9 +17,14 @@ Arquivo settings.py
             'USER': 'root',
             #usuário para base de dados
             'PASSWORD': '',
-            #senha para a base de dados
+            #senha para a base de dado
+            'HOST':'127.0.0.1' ou 'localhost',
             'PORT': '3307'
             #porta de acesso do banco de dados
+            OPTIONS': {
+            'read_default_file': '/opt/lampp/etc/my.cnf'
+            }
+            erro com o mysql
         ]
 
 
