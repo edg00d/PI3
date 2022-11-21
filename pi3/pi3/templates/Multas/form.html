@@ -2,15 +2,20 @@
 {% load widget_tweaks %} 
 {% block conteudo %} 
     <h1>{{ titulo }}</h1>
+    <p>
+        <a href="{% url 'Multas.lista' %}" class="btn btn-primary">
+            <i class="fa fa-arrow-left"></i>
+        </a>
+    </p>
     <form method="POST">
         {% csrf_token %} 
         <p>
-            <label>Nome:</label>
-            {{ frm.nome|add_class:'form-control'}}
+            <label>Data de desbloqueio:</label>
+            {{ frm.data_desbloqueio|add_class:'form-control'}}
         </p>
         <p>
-            <label>Bio:</label>
-            {{ frm.bio|add_class:'form-control'}}
+            <label>Usuário:</label>
+            {{ frm.cpf_Usuario|add_class:'form-control'}}
         </p>
         <p>
             <button type="submit" class="btn btn-primary">

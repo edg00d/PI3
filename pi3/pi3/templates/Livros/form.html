@@ -2,10 +2,15 @@
 {% load widget_tweaks %}
 {% block conteudo %}
     <h1>{{ titulo }}</h1>
+    <p>
+        <a href="{% url 'Livros.lista' %}" class="btn btn-primary">
+            <i class="fa fa-arrow-left"></i>
+        </a>
+    </p>
     <form method="POST">
         {% csrf_token %}
         <p>
-            <label>ISBN::</label>
+            <label>ISBN:</label>
             {{ frm.isbn|add_class:'form-control'}}
         </p>
         <p>
@@ -19,10 +24,6 @@
         <p>
             <label>Estado:</label>
             {{ frm.estado|add_class:'form-control' }}
-        </p>
-        <p>
-            <label>Disponibilidade:</label>
-            {{ frm.situação_livro|add_class:'form-control' }}
         </p>
         <p>
             <label>Editora:</label>

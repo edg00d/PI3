@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<h1>Multas Cadastradas</h1>
+<p>
+    <a href="{% url 'home' %}" class="btn btn-primary">
+        <i class="fa fa-home"></i>
+    </a>
+</p>
+<p>
+    <a href="{% url 'Multas.novo' %}" class="btn btn-primary">
+        <i class="fa fa-plus"></i> Cadastrar Multa
+    </a>
+</p>
+<table class="table table-hover">
+    <tr>
+        <th>Data de Desbloqueio</th>
+        <th>CPF do Usuário</th>
+    </tr>
+    {% for m in Multas %}
+    <tr>
+        <td>{{m.data_desbloqueio}}</td>
+        <td>{{m.cpf_Usuario}}</td>
+        <td>
+            <a href="{% url 'Multas.editar' m.id %}" class="btn btn-warning">
+                <i class="fa fa-pencil"></i>
+            </a>
+            <a href="{% url 'Multas.excluir' m.id %}" class="btn btn-danger" onclick=" return confirm('Deseja Excluir {{ a.nome }} ? ')">
+                <i class="fa fa-trash"></i>
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

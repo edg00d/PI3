@@ -1,10 +1,14 @@
 {% extends 'base.html' %}
 {% block conteudo %}
-<h1>Projeto de PI</h1>
+<h1>SGBC</h1>
+<h3>Sistema de Gerenciamento para Bibliotecas Comunitárias</h3>
 <p>
-    <a href="{% url 'autores.lista' %}" class="btn btn-primary">Cadastro de Autores</a>
-    <a href="{% url 'editoras.lista' %}" class="btn btn-primary">Cadastro de Editoras</a>
-    <a href="{% url 'livros.lista' %}" class="btn btn-primary">Cadastro de livros</a>
-    <a href="{% url 'usuarios.lista' %}" class="btn btn-primary">Cadastro de Usuários</a>
+    <a href="{% url 'Autores.lista' %}" class="btn btn-primary"> Autores </a>
+    <a href="{% url 'Editoras.lista' %}" class="btn btn-primary"> Editoras </a>
+    <a href="{% url 'Livros.lista' %}" class="btn btn-primary"> Livros </a>
+    <a href="{% url 'Usuarios.lista' %}" class="btn btn-primary"> Usuários </a>
+    <a href="{% url 'Multas.lista' %}" class="btn btn-primary"> Multas </a>
+    <a href="{% url 'Emprestimos.lista' %}" class="btn btn-primary"> Emprestimos </a>
+
 </p>
 {% endblock %}

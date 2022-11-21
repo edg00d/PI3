@@ -1,31 +1,29 @@
 {% extends 'base.html' %}
 {% block conteudo %}
-<h1>Autores Cadastradas</h1>
+<h1>Editoras Cadastradas</h1>
 <p>
     <a href="{% url 'home' %}" class="btn btn-primary">
         <i class="fa fa-home"></i>
     </a>
 </p>
 <p>
-    <a href="{% url 'autores.novo' %}" class="btn btn-primary">
-        <i class="fa fa-plus"></i> Cadastrar Autor
+    <a href="{% url 'Editoras.novo' %}" class="btn btn-primary">
+        <i class="fa fa-plus"></i> Cadastrar Editora
     </a>
 </p>
 <table class="table table-hover">
     <tr>
         <th>Nome</th>
-        <th>Bio</th>
         <th>Ações</th>
     </tr>
-    {% for a in autores %}
+    {% for e in Editoras %}
     <tr>
-        <td>{{a.nome}}</td>
-        <td>{{a.bio}}</td>
+        <td>{{e.nome}}</td>
         <td>
-            <a href="{% url 'autores.editar' a.id %}" class="btn btn-warning">
+            <a href="{% url 'Editoras.editar' e.id %}" class="btn btn-warning">
                 <i class="fa fa-pencil"></i>
             </a>
-            <a href="{% url 'autores.excluir' a.id %}" class="btn btn-danger" onclick=" return confirm('Deseja Excluir {{ a.nome }} ? ')">
+            <a href="{% url 'Editoras.excluir' e.id %}" class="btn btn-danger" onclick=" return confirm('Deseja Excluir {{ e.nome }} ? ')">
                 <i class="fa fa-trash"></i>
             </a>
         </td>

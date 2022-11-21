@@ -16,28 +16,38 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from pi3.view import pages, autores, editoras, livros, usuarios
+from pi3.view import pages, Autores, Editoras, Livros, Usuarios, Multas, Emprestimos
 
 urlpatterns = [
     path('', pages.home, name='home'),
 
-    path('autores', autores.lista, name='autores.lista'),
-    path('autores/novo', autores.novo, name='autores.novo'),
-    path('autores/editar/<id>', autores.editar, name='autores.editar'),
-    path('autores/excluir/<id>', autores.excluir, name='autores.excluir'),
+    path('Autores', Autores.lista, name='Autores.lista'),
+    path('Autores/novo', Autores.novo, name='Autores.novo'),
+    path('Autores/editar/<id>', Autores.editar, name='Autores.editar'),
+    path('Autores/excluir/<id>', Autores.excluir, name='Autores.excluir'),
     
-    path('editoras', editoras.lista, name='editoras.lista'),
-    path('editoras/novo', editoras.novo, name='editoras.novo'),
-    path('editoras/editar/<id>', editoras.editar, name='editoras.editar'),
-    path('editoras/excluir/<id>', editoras.excluir, name='editoras.excluir'),
+    path('Editoras', Editoras.lista, name='Editoras.lista'),
+    path('Editoras/novo', Editoras.novo, name='Editoras.novo'),
+    path('Editoras/editar/<id>', Editoras.editar, name='Editoras.editar'),
+    path('Editoras/excluir/<id>', Editoras.excluir, name='Editoras.excluir'),
 
-    path('livros', livros.lista, name='livros.lista'),
-    path('livros/novo', livros.novo, name='livros.novo'),
-    path('livros/editar/<id>', livros.editar, name='livros.editar'),
-    path('livros/excluir/<id>', livros.excluir, name='livros.excluir'),
+    path('Livros', Livros.lista, name='Livros.lista'),
+    path('Livros/novo', Livros.novo, name='Livros.novo'),
+    path('Livros/editar/<id>', Livros.editar, name='Livros.editar'),
+    path('Livros/excluir/<id>', Livros.excluir, name='Livros.excluir'),
 
-    path('usuarios', usuarios.lista, name='usuarios.lista'),
-    path('usuarios/novo', usuarios.novo, name='usuarios.novo'),
-    path('usuarios/editar/<id>', usuarios.editar, name='usuarios.editar'),
-    path('usuarios/excluir/<id>', usuarios.excluir, name='usuarios.excluir'),
+    path('Usuarios', Usuarios.lista, name='Usuarios.lista'),
+    path('Usuarios/novo', Usuarios.novo, name='Usuarios.novo'),
+    path('Usuarios/editar/<id>', Usuarios.editar, name='Usuarios.editar'),
+    path('Usuarios/excluir/<id>', Usuarios.excluir, name='Usuarios.excluir'),
+
+    path('Multas', Multas.lista, name='Multas.lista'),
+    path('Multas/novo', Multas.novo, name='Multas.novo'),
+    path('Multas/editar/<id>', Multas.editar, name='Multas.editar'),
+    path('Multas/excluir/<id>', Multas.excluir, name='Multas.excluir'),
+
+    path('Emprestimos', Emprestimos.lista, name='Emprestimos.lista'),
+    path('Emprestimos/novo', Emprestimos.novo, name='Emprestimos.novo'),
+    path('Emprestimos/editar/<id>', Emprestimos.editar, name='Emprestimos.editar'),
+    path('Emprestimos/excluir/<id>', Emprestimos.excluir, name='Emprestimos.excluir'),
 ]

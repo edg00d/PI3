@@ -1,30 +1,42 @@
-from tkinter import CASCADE
 from django.db import models
+from datetime import date
 
-class usuario(models.Model):
+class Usuario(models.Model):
     nome = models.CharField(max_length=200)
     cpf = models.CharField(max_length=14, primary_key=True)
-    senha = models.CharField(max_length=200)
     email = models.CharField(max_length=200)
     telefone = models.CharField(max_length=13)
     cep = models.CharField(max_length=9)
     comp_cep = models.CharField(max_length=200)
+    def __str__(self):
+        return self.cpf
 
-class multa(models.Model):
+class Multa(models.Model):
     data_desbloqueio = models.DateField()
+    cpf_Usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
-class editora(models.Model):
+class Editora(models.Model):
     nome = models.CharField(max_length=200)
-    
-class autor(models.Model):
+    def __str__(self):
+        return self.nome
+        
+class Autor(models.Model):
     nome = models.CharField(max_length=200)
-    bio = models.CharField(max_length=400)
+    def __str__(self):
+        return self.nome
 
-class livro(models.Model):
+class Livro(models.Model):
     isbn = models.CharField(max_length=200)
     titulo = models.CharField(max_length=200)
     data_aquisicao = models.DateField()
     estado = models.CharField(max_length=200)
-    situacao_livro = models.BooleanField(null=True)
-    editora = models.ForeignKey('editora', on_delete=models.CASCADE)
-    autor = models.ForeignKey('autor', on_delete=models.CASCADE)
+    editora = models.ForeignKey(Editora, on_delete=models.CASCADE)
+    autor = models.ForeignKey(Autor, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.titulo
+
+class Emprestimos(models.Model):
+    cpf_Usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    id_livro = models.ForeignKey(Livro, on_delete=models.CASCADE)
+    data_emprestimo = models.DateField()
+    data_devolucao = models.DateField()
