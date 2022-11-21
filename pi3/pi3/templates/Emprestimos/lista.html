@@ -25,10 +25,10 @@
             <td>{{ e.data_emprestimo }}</td>
             <td>{{ e.data_devolucao }}</td>
             <td>
-                <a href="{% url 'Emprestimos.editar' e.id %}" class="btn btn-warning">
+                <a href="{% url 'Emprestimos.editar' e.id_livro %}" class="btn btn-warning">
                     <i class="fa fa-pencil"></i>
                 </a>
-                <a href="{% url 'Emprestimos.excluir' e.id %}" class="btn btn-danger" onclick=" return confirm('Deseja Excluir {{ e.titulo }} ? ')">
+                <a href="{% url 'Emprestimos.excluir' e.id_livro%}" class="btn btn-danger" onclick=" return confirm('Deseja Excluir {{ e.titulo }} ? ')">
                     <i class="fa fa-trash"></i>
                 </a>
             </td>

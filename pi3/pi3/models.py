@@ -37,6 +37,6 @@ class Livro(models.Model):
 
 class Emprestimos(models.Model):
     cpf_Usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
-    id_livro = models.ForeignKey(Livro, on_delete=models.CASCADE)
+    id_livro = models.OneToOneField(Livro, on_delete=models.CASCADE, primary_key = True)
     data_emprestimo = models.DateField()
     data_devolucao = models.DateField()

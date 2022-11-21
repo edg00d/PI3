@@ -22,7 +22,7 @@ def novo(request):
         return redirect('Emprestimos.lista')
     return render(request, 'Emprestimos/form.html', {
         'frm': frm,
-        'titulo': 'Cadatrar Emprestimos'
+        'titulo': 'Cadastrar Emprestimo'
     })
 def editar(request, id):
     emprestimos = get_object_or_404(Emprestimos, pk=id)
