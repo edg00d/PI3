@@ -24,18 +24,8 @@ def novo(request):
         'frm': frm,
         'titulo': 'Cadastrar Emprestimo'
     })
-def editar(request, id):
-    emprestimos = get_object_or_404(Emprestimos, pk=id)
-    frm = Emprestimos_form(request.POST or None, instance=Emprestimos)
-    if frm.is_valid():
-        frm.save()
-        return redirect('Emprestimos.lista')
-    return render(request, 'Emprestimos/form.html',{
-        'frm':frm,
-        'titulo': 'Editar Emprestimos'
-    })
 def excluir(request, id):
     emprestimos = get_object_or_404(Emprestimos, pk=id)
-    frm = Emprestimos_form(request.POST or None, instance=Emprestimos)
+    frm = Emprestimos_form(request.POST or None, instance= emprestimos)
     emprestimos.delete()
     return redirect('Emprestimos.lista')

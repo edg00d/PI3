@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from pi3.view import pages, Autores, Editoras, Livros, Usuarios, Multas, Emprestimos
+from pi3.view import pages, Autores, Editoras, Livros, Usuarios, Multas, Emprestimos, Hist_Empr
 
 urlpatterns = [
     path('', pages.home, name='home'),
@@ -48,6 +48,7 @@ urlpatterns = [
 
     path('Emprestimos', Emprestimos.lista, name='Emprestimos.lista'),
     path('Emprestimos/novo', Emprestimos.novo, name='Emprestimos.novo'),
-    path('Emprestimos/editar/<id>', Emprestimos.editar, name='Emprestimos.editar'),
     path('Emprestimos/excluir/<id>', Emprestimos.excluir, name='Emprestimos.excluir'),
+
+    path('Hist_Empr', Hist_Empr.lista, name='Hist_Empr.lista'),
 ]

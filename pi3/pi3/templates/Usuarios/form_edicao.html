@@ -3,32 +3,31 @@
 {% block conteudo %}
     <h1>{{ titulo }}</h1>
     <p>
-        <a href="{% url 'Livros.lista' %}" class="btn btn-primary">
+        <a href="{% url 'Usuarios.lista' %}" class="btn btn-primary">
             <i class="fa fa-arrow-left"></i>
         </a>
     </p>
     <form method="POST">
         {% csrf_token %}
         <p>
-            <label>ISBN:</label>
-            {{ frm.isbn|add_class:'form-control'}}
+            <label>Nome:</label>
+            {{ frm.nome|add_class:'form-control'}}
         </p>
         <p>
-            <label>Titulo:</label>
-            {{ frm.titulo|add_class:'form-control'}}
+            <label>E-mail:</label>
+            {{ frm.email|add_class:'form-control' }}
         </p>
         <p>
-        <p>
-            <label>Estado:</label>
-            {{ frm.estado|add_class:'form-control' }}
+            <label>Telefone:</label>
+            {{ frm.telefone|add_class:'form-control' }}
         </p>
         <p>
-            <label>Editora:</label>
-            {{ frm.editora|add_class:'form-control' }}
+            <label>CEP:</label>
+            {{ frm.cep|add_class:'form-control' }}
         </p>
         <p>
-            <label>Autor:</label>
-            {{ frm.autor|add_class:'form-control' }}
+            <label>Complemento do CEP:</label>
+            {{ frm.comp_cep|add_class:'form-control' }}
         </p>
         <p>
             <button type="submit" class="btn btn-primary">

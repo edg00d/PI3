@@ -28,7 +28,7 @@ class Autor(models.Model):
 class Livro(models.Model):
     isbn = models.CharField(max_length=200)
     titulo = models.CharField(max_length=200)
-    data_aquisicao = models.DateField()
+    data_aquisicao = models.DateField(auto_now_add = True)
     estado = models.CharField(max_length=200)
     editora = models.ForeignKey(Editora, on_delete=models.CASCADE)
     autor = models.ForeignKey(Autor, on_delete=models.CASCADE)
@@ -38,5 +38,10 @@ class Livro(models.Model):
 class Emprestimos(models.Model):
     cpf_Usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     id_livro = models.OneToOneField(Livro, on_delete=models.CASCADE, primary_key = True)
+    data_emprestimo = models.DateField(auto_now_add = True)
+
+class Hist_Empr(models.Model):
+    cpf = models.CharField(max_length=14)
+    titulo = models.CharField(max_length=200)
     data_emprestimo = models.DateField()
     data_devolucao = models.DateField()

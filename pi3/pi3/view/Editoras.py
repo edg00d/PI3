@@ -20,7 +20,7 @@ def novo(request):
     })
 def editar(request, id):
     editora = get_object_or_404(Editora, pk=id)
-    frm = Editora_form(request.POST or None, instance=Editora)
+    frm = Editora_form(request.POST or None, instance= editora)
     if frm.is_valid():
         frm.save()
         return redirect('Editoras.lista')
@@ -30,6 +30,6 @@ def editar(request, id):
     })
 def excluir(request, id):
     editora = get_object_or_404(Editora, pk=id)
-    frm = Editora_form(request.POST or None, instance=Editora)
+    frm = Editora_form(request.POST or None, instance= editora)
     editora.delete()
     return redirect('Editoras.lista')

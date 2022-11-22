@@ -20,7 +20,7 @@ def novo(request):
     })
 def editar(request, id):
     autor = get_object_or_404(Autor, pk=id)
-    frm = Autor_form(request.POST or None, instance=Autor)
+    frm = Autor_form(request.POST or None, instance= autor)
     if frm.is_valid():
         frm.save()
         return redirect('Autores.lista')
@@ -30,6 +30,6 @@ def editar(request, id):
     })
 def excluir(request, id):
     autor = get_object_or_404(Autor, pk=id)
-    frm = Autor_form(request.POST or None, instance=Autor)
+    frm = Autor_form(request.POST or None, instance= autor)
     autor.delete()
     return redirect('Autores.lista')

@@ -20,16 +20,16 @@ def novo(request):
     })
 def editar(request, id):
     usuario = get_object_or_404(Usuario, pk=id)
-    frm = Usuario_form(request.POST or None, instance=Usuario)
+    frm = Usuario_form(request.POST or None, instance= usuario)
     if frm.is_valid():
         frm.save()
         return redirect('Usuarios.lista')
-    return render(request, 'Usuarios/form.html',{
+    return render(request, 'Usuarios/form_edicao.html',{
         'frm':frm,
         'titulo': 'Editar Usuario'
     })
 def excluir(request, id):
     usuario = get_object_or_404(Usuario, pk=id)
-    frm = Usuario_form(request.POST or None, instance=Usuario)
+    frm = Usuario_form(request.POST or None, instance= usuario)
     usuario.delete()
     return redirect('Usuarios.lista')

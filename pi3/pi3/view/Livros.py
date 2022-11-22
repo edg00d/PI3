@@ -5,7 +5,6 @@ class Livro_form(ModelForm):
     class Meta:
         model= Livro
         fields= '__all__'
-    
     def __init__(self, *args, **kwargs):
         super(Livro_form, self).__init__(*args, **kwargs)
         self.fields['editora'].empty_label = 'Selecione uma Editora'
@@ -26,7 +25,7 @@ def novo(request):
     })
 def editar(request, id):
     livro = get_object_or_404(Livro, pk=id)
-    frm = Livro_form(request.POST or None, instance=Livro)
+    frm = Livro_form(request.POST or None, instance= livro)
     if frm.is_valid():
         frm.save()
         return redirect('Livros.lista')
@@ -36,6 +35,6 @@ def editar(request, id):
     })
 def excluir(request, id):
     livro = get_object_or_404(Livro, pk=id)
-    frm = Livro_form(request.POST or None, instance=Livro)
+    frm = Livro_form(request.POST or None, instance= livro)
     livro.delete()
     return redirect('Livros.lista')
