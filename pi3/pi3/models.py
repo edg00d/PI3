@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import date, timedelta, timezone, datetime
 class Usuario(models.Model):
     nome = models.CharField(max_length=200)
     cpf = models.CharField(max_length=14, primary_key=True)
@@ -39,4 +40,7 @@ class Emprestimos(models.Model):
     cpf_Usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     id_livro = models.ForeignKey(Livro, on_delete=models.CASCADE)
     data_emprestimo = models.DateField()
-    data_previ_dev = models.DateField()
+    data_devolucao = models.DateField(blank = True, null = True)
+    @property
+    def data_previ_dev(self):
+        return self.data_emprestimo + timedelta(days=-7)
