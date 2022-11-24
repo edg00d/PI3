@@ -20,6 +20,9 @@ from pi3.view import pages, Autores, Editoras, Livros, Usuarios, Multas, Emprest
 
 urlpatterns = [
     path('', pages.home, name='home'),
+    path('pages/acervo', pages.home_acervo, name='home.acervo'),
+    path('pages/usuario', pages.home_usuario, name='home.usuario'),
+    path('pages/empr', pages.home_empr, name='home.empr'),
 
     path('Autores', Autores.lista, name='Autores.lista'),
     path('Autores/novo', Autores.novo, name='Autores.novo'),
@@ -32,6 +35,8 @@ urlpatterns = [
     path('Editoras/excluir/<id>', Editoras.excluir, name='Editoras.excluir'),
 
     path('Livros', Livros.lista, name='Livros.lista'),
+    path('Livros/todos', Livros.lista_livros, name='Livros.lista_livros'),
+    path('Livros/disponiveis', Livros.lista_disp, name='Livros.lista_disp'),
     path('Livros/novo', Livros.novo, name='Livros.novo'),
     path('Livros/editar/<id>', Livros.editar, name='Livros.editar'),
     path('Livros/excluir/<id>', Livros.excluir, name='Livros.excluir'),
@@ -47,8 +52,8 @@ urlpatterns = [
     path('Multas/excluir/<id>', Multas.excluir, name='Multas.excluir'),
 
     path('Emprestimos', Emprestimos.lista, name='Emprestimos.lista'),
-    path('Emprestimos/novo', Emprestimos.novo, name='Emprestimos.novo'),
-    path('Emprestimos/excluir/<id>', Emprestimos.excluir, name='Emprestimos.excluir'),
+    path('Emprestimos/novo/<id>', Emprestimos.novo, name='Emprestimos.novo'),
+    path('Emprestimos/devolver/<id>/<id_livro_id>/<cpf_Usuario_id>', Emprestimos.devolver, name='Emprestimos.devolver'),
 
     path('Hist_Empr', Hist_Empr.lista, name='Hist_Empr.lista'),
 ]

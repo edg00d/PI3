@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<h4>SGBC</h4>
+<p>
+    <a href="{% url 'home' %}" class="btn btn-primary">
+        <i class="fa fa-home"></i>
+    </a>
+</p>
+<h2>Gerenciar Empréstimos</h2>
+<p>
+    <a href="{% url 'Livros.lista_livros' %}" class="btn btn-primary"> Todos os livros</a>
+    <a href="{% url 'Livros.lista_disp' %}" class="btn btn-primary"> Livros disponíveis para empréstimo</a>
+    <a href="{% url 'Emprestimos.lista' %}" class="btn btn-primary"> Empréstimos em andamento</a>
+    <a href="{% url 'Hist_Empr.lista' %}" class="btn btn-primary"> Histórico de Emprestimos </a>
+
+</p>
+{% endblock %}

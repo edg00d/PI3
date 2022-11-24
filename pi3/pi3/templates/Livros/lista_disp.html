@@ -1,17 +1,12 @@
 {% extends 'base.html' %}
 {% block conteudo %}
-<h1>Livros Cadastrados</h1>
+<h1>Livros disponíveis</h1>
 <p>
-    <a href="{% url 'home.acervo' %}" class="btn btn-primary">
+    <a href="{% url 'home.empr' %}" class="btn btn-primary">
         <i class="fa fa-arrow-left"></i>
     </a>
     <a href="{% url 'home' %}" class="btn btn-primary">
         <i class="fa fa-home"></i>
-    </a>
-</p>
-<p>
-    <a href="{% url 'Livros.novo' %}" class="btn btn-primary">
-        <i class="fa fa-plus"></i> Cadastrar Livros
     </a>
 </p>
 <table class="table table-hover">
@@ -22,8 +17,7 @@
         <th>Estado de Conservação</th>
         <th>Editora</th>
         <th>Autor</th>
-        <th>Disponibilidade</th>
-        <th>Ações</th>
+        <th>Registrar Empréstimo</th>
     </tr>
     {% for l in Livros %}
         <tr>
@@ -33,13 +27,9 @@
             <td>{{ l.estado }}</td>
             <td>{{ l.editora.nome }}</td>
             <td>{{ l.autor.nome }}</td>
-            <td>{{ l.status }}</td>
             <td>
-                <a href="{% url 'Livros.editar' l.id %}" class="btn btn-warning">
-                    <i class="fa fa-pencil"></i>
-                </a>
-                <a href="{% url 'Livros.excluir' l.id %}" class="btn btn-danger" onclick=" return confirm('Deseja Excluir {{ l.titulo }} ? ')">
-                    <i class="fa fa-trash"></i>
+                <a href="{% url 'Emprestimos.novo' l.id %}" class="btn btn-outline-info">
+                    <i class="fa-solid fa-hand-holding-heart"></i>
                 </a>
             </td>
         </tr>

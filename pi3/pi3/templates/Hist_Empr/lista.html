@@ -2,6 +2,9 @@
 {% block conteudo %}
 <h1>Emprestimos já finalizados</h1>
 <p>
+    <a href="{% url 'home.empr' %}" class="btn btn-primary">
+        <i class="fa fa-arrow-left"></i>
+    </a>
     <a href="{% url 'home' %}" class="btn btn-primary">
         <i class="fa fa-home"></i>
     </a>
@@ -11,6 +14,7 @@
         <th>CPF</th>
         <th>Titulo</th>
         <th>Data de Emprestimo</th>
+        <th>Data limite para devolução</th>
         <th>Data de Devolução</th>
     </tr>
     {% for h in Hist_Empr %}
@@ -18,7 +22,8 @@
             <td>{{ h.cpf_Usuario }}</td>
             <td>{{ h.id_livro.titulo }}</td>
             <td>{{ h.data_emprestimo }}</td>
-            <td>{{ h.data_emprestimo }}</td>
+            <td>{{ h.data_previ_dev }}</td>
+            <td>{{ h.data_devolucao }}</td>
         </tr>
     {% endfor %}
 </table>

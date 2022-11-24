@@ -14,6 +14,14 @@ def lista(request):
     return render(request, 'Livros/lista.html', {
         'Livros': Livro.objects.all()
     })
+def lista_livros(request):
+    return render(request, 'Livros/lista_livros.html', {
+        'Livros': Livro.objects.all()
+    })
+def lista_disp(request):
+    return render(request, 'Livros/lista_disp.html', {
+        'Livros': Livro.objects.exclude(status = False)
+    })
 def novo(request):
     frm = Livro_form(request.POST or None)
     if frm.is_valid():
@@ -21,7 +29,7 @@ def novo(request):
         return redirect('Livros.lista')
     return render(request, 'Livros/form.html', {
         'frm': frm,
-        'titulo': 'Cadatrar Livro'
+        'titulo': 'Cadastrar Livro'
     })
 def editar(request, id):
     livro = get_object_or_404(Livro, pk=id)

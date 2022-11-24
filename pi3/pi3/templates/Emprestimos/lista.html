@@ -1,14 +1,12 @@
 {% extends 'base.html' %}
 {% block conteudo %}
-<h1>Emprestimos não finalizados</h1>
+<h1>Emprestimos em andamento</h1>
 <p>
+    <a href="{% url 'home.empr' %}" class="btn btn-primary">
+        <i class="fa fa-arrow-left"></i>
+    </a>
     <a href="{% url 'home' %}" class="btn btn-primary">
         <i class="fa fa-home"></i>
-    </a>
-</p>
-<p>
-    <a href="{% url 'Emprestimos.novo' %}" class="btn btn-primary">
-        <i class="fa fa-plus"></i> Cadastrar Emprestimos
     </a>
 </p>
 <table class="table table-hover">
@@ -16,6 +14,7 @@
         <th>CPF</th>
         <th>Titulo</th>
         <th>Data de Emprestimo</th>
+        <th>Data limite para devolução</th>
         <th>Registrar Devolução</th>
     </tr>
     {% for e in Emprestimos %}
@@ -23,8 +22,9 @@
             <td>{{ e.cpf_Usuario }}</td>
             <td>{{ e.id_livro.titulo }}</td>
             <td>{{ e.data_emprestimo }}</td>
+            <td>{{ e.data_previ_dev }}</td>
             <td>
-                <a href="{% url 'Emprestimos.excluir' e.id_livro_id%}" class="btn btn-success" onclick=" return confirm('Tem certeza ? ')">
+                <a href="{% url 'Emprestimos.devolver' e.id e.id_livro_id e.cpf_Usuario_id %}" class="btn btn-success" onclick=" return confirm('Tem certeza ? ')">
                     <i class="fa-solid fa-check-to-slot"></i>
                 </a>
             </td>

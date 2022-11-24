@@ -2,6 +2,9 @@
 {% block conteudo %}
 <h1>Usuarios Cadastrados</h1>
 <p>
+    <a href="{% url 'home.usuario' %}" class="btn btn-primary">
+        <i class="fa fa-arrow-left"></i>
+    </a>
     <a href="{% url 'home' %}" class="btn btn-primary">
         <i class="fa fa-home"></i>
     </a>
@@ -19,6 +22,7 @@
         <th>Telefone</th>
         <th>CEP</th>
         <th>Complemento</th>
+        <th>Multas Ativas</th>
         <th>Ações</th>
     </tr>
     {% for u in Usuarios %}
@@ -29,6 +33,7 @@
             <td>{{ u.telefone }}</td>
             <td>{{ u.cep }}</td>
             <td>{{ u.comp_cep }}</td>
+            <td>{{ u.status}}</td>
             <td>
                 <a href="{% url 'Usuarios.editar' u.cpf %}" class="btn btn-warning">
                     <i class="fa fa-pencil"></i>

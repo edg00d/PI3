@@ -24,7 +24,7 @@ def novo(request):
     })
 def editar(request, id):
     multa = get_object_or_404(Multa, pk=id)
-    frm = Multa_form(request.POST or None, instance= multa)
+    frm = Multa_form(request.POST or None, instance= Multa)
     if frm.is_valid():
         frm.save()
         return redirect('Multas.lista')
