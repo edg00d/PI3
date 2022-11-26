@@ -3,7 +3,7 @@ from pi3.models import *
 from django.forms import ModelForm
 from datetime import date, timedelta, timezone, datetime
 from django.utils.timezone import now
-from pi3.view.Multas import *
+from pi3.view.Multas import m_novo
 class Emprestimos_form(ModelForm):
     class Meta:
         model= Emprestimos
@@ -54,6 +54,5 @@ def devolver(request, id, id_livro_id, cpf_Usuario_id):
         "cpf_Usuario": cpf_Usuario_id
     }
     if emprestimo.data_previ_dev < date.today():
-        frm = Multa_form(request.POST or None, initial = initial_dict)      
-        frm.save()
+        m_novo(request, initial_dict)
     return redirect('Emprestimos.lista')

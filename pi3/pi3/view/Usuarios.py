@@ -24,7 +24,7 @@ def editar(request, id):
     if frm.is_valid():
         frm.save()
         return redirect('Usuarios.lista')
-    return render(request, 'Usuarios/form_edicao.html',{
+    return render(request, 'Usuarios/form.html',{
         'frm':frm,
         'titulo': 'Editar Usuario'
     })

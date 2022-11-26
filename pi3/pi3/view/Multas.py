@@ -22,9 +22,18 @@ def novo(request):
         'frm': frm,
         'titulo': 'Cadastrar Multa'
     })
+def m_novo(request, dict):
+    frm = Multa_form(request.POST or None, initial = dict)
+    if frm.is_valid():
+        frm.save()
+        return redirect('Multas.lista')
+    return render(request, 'Multas/form.html', {
+        'frm': frm,
+        'titulo': 'Cadastrar Multa'
+    })
 def editar(request, id):
     multa = get_object_or_404(Multa, pk=id)
-    frm = Multa_form(request.POST or None, instance= Multa)
+    frm = Multa_form(request.POST or None, instance= multa)
     if frm.is_valid():
         frm.save()
         return redirect('Multas.lista')
