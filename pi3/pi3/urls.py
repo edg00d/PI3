@@ -47,8 +47,7 @@ urlpatterns = [
     path('Usuarios/excluir/<id>', Usuarios.excluir, name='Usuarios.excluir'),
 
     path('Multas', Multas.lista, name='Multas.lista'),
-    path('Multas/novo', Multas.novo, name='Multas.novo'),
-    path('Multas/editar/<id>', Multas.editar, name='Multas.editar'),
+    path('Multas/novo/<cpf_Usuario_id>', Multas.novo, name='Multas.novo'),
     path('Multas/excluir/<id>', Multas.excluir, name='Multas.excluir'),
 
     path('Emprestimos', Emprestimos.lista, name='Emprestimos.lista'),

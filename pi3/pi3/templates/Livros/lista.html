@@ -22,7 +22,6 @@
         <th>Estado de Conservação</th>
         <th>Editora</th>
         <th>Autor</th>
-        <th>Disponibilidade</th>
         <th>Ações</th>
     </tr>
     {% for l in Livros %}
@@ -33,7 +32,6 @@
             <td>{{ l.estado }}</td>
             <td>{{ l.editora.nome }}</td>
             <td>{{ l.autor.nome }}</td>
-            <td>{{ l.status }}</td>
             <td>
                 <a href="{% url 'Livros.editar' l.id %}" class="btn btn-warning">
                     <i class="fa fa-pencil"></i>

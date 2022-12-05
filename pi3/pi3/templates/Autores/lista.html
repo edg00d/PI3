@@ -22,7 +22,6 @@
     {% for a in Autores %}
     <tr>
         <td>{{a.nome}}</td>
-        <td>{{a.bio}}</td>
         <td>
             <a href="{% url 'Autores.editar' a.id %}" class="btn btn-warning">
                 <i class="fa fa-pencil"></i>
